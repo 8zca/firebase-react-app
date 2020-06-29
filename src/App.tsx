@@ -1,15 +1,19 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-import { ProvideAuth } from './auth'
-import Index from './components/index'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Auth from 'components/Auth'
+import Top from 'components/Top'
+import Login from 'components/Login'
 
 const App: React.FC = () => {
   return (
-    <ProvideAuth>
-      <Router>
-        <Route path='/' exact component={Index} />
-      </Router>
-    </ProvideAuth>
+    <Router>
+      <Switch>
+        <Route path='/login' exact component={Login} />
+        <Auth>
+          <Route path='/' exact component={Top} />
+        </Auth>
+      </Switch>
+    </Router>
   )
 }
 

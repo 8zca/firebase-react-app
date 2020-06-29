@@ -1,5 +1,5 @@
 {
-  "name": "hotel-search",
+  "name": "firebase-react-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,7 +11,9 @@
     "@types/react": "16.9.2",
     "@types/react-dom": "16.9.0",
     "@types/react-router-dom": "^4.3.5",
+    "axios": "^0.19.2",
     "firebase": "^6.6.2",
+    "firebase-admin": "^8.12.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
