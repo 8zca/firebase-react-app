@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react'
 import { RouteComponentProps, withRouter } from 'react-router-dom'
-import firebase from 'firebase'
+import firebase from 'services/firebase'
 
 const Login = (props: RouteComponentProps) => {
   const [message, setMessage] = useState<string>('')
@@ -17,6 +17,7 @@ const Login = (props: RouteComponentProps) => {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
+        console.log(res)
         setLoading(false)
         props.history.push('/')
       })
@@ -39,7 +40,7 @@ const Login = (props: RouteComponentProps) => {
       <h1>Login form</h1>
       <form>
         <div>
-          <input type='email' placeholder='user@example.com' ref={emailRef} />
+          <input type='email' placeholder='user@example.com' value='test@example.com' ref={emailRef} />
         </div>
         <div>
           <input type='password' placeholder='******' ref={passwordRef} />
