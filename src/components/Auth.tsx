@@ -8,6 +8,7 @@ const Auth: React.FC<{}> = ({ children }): any => {
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
+      console.log('check')
       if (user) {
         setLogin(true)
         setLoading(false)
