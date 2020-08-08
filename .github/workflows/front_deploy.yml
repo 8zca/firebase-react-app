@@ -1,0 +1,32 @@
+on:
+  push:
+    branches:
+      - master
+
+name: Deploy to firebase hosting
+
+jobs:
+  deploy:
+    name: FrontDeploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Create .env file
+        run: echo "${{ secrets.ENV_FILE }}" > .env
+
+      - name: deploy to Firebase Hosting
+        uses: w9jds/firebase-action@master
+        with:
+          args: deploy --only hosting
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
